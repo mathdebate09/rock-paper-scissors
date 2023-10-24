@@ -41,7 +41,7 @@ function playRound(computerSelection, playerSelection) {
 
 function game() {
     let score = 0,result;
-    for (let i = 1; i<= 2; i++) {
+    for (let i = 1; i<= 5; i++) {
         const playerSelection = prompt("Rock Paper Scissors Shoot! Make your choice");
         const computerSelection = getComputerChoice();
         result = playRound(playerSelection, computerSelection);
