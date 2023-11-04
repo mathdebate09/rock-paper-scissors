@@ -1,0 +1,51 @@
+/* global-styles */
+* {
+    background-color: rgb(246, 238, 117);
+}
+
+/* button {
+    border-radius:200000000px;
+    border-width: 8px;
+} */
+
+/* page-title */
+.page-title {
+    text-align:center;
+    font-size: 50px;
+    font-family:'Pixelify Sans', serif;
+    font-family:'Noto Sans', serif;
+}
+
+/* option-bar */
+.option-bar {
+    display:flex;
+    justify-content: center;
+    gap:16px;
+}
+
+#rock, #paper, #scissors {
+    width:200px;
+}
+
+/* score */
+.score {
+    font-size:40px;
+    color:#5f3600;
+}
+
+/* game-start, game-results, score */
+.game-start, .game-results, .score, .game-status {
+    display:flex;
+    justify-content: center;
+    font-size:30px;
+    font-family:'Pixelify Sans', serif;
+}
+
+/* footer */
+.footer {
+    text-align: center;
+    border:20px;
+    border-color: black;;
+    color: #5f3600;
+    padding: 16px;
+}

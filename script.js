@@ -40,45 +40,44 @@ function playRound(computerSelection, playerSelection) {
 }
 
 function game() {
-    let score = 0,result;
-    for (let i = 1; i<= 5; i++) {
-        const playerSelection = prompt("Rock Paper Scissors Shoot! Make your choice");
-        const computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
-        alert(result);
+    let score = 0;
 
-        // score += scoreCalc(result);
-        // I'm unable to use this function, if you can help me with a solution, do make a pull req
-        
-        if (result.includes("Win")) {
-            score++;
-        } else if (result.includes("Lose")) {
-            score--;
+    const imageContainer = document.querySelector('.option-bar');
+    const gameResults = document.querySelector('.game-results');
+    const gameStatus = document.querySelector('.game-status');
+    const gameScore = document.querySelector('.score');
+
+    // Add a click event listener to the container
+    imageContainer.addEventListener('click', function(event) {
+        // Check if the clicked element is an img element
+        if (event.target.tagName === 'IMG') {
+            const clickedImageId = event.target.id;
+            console.log("Player selected choice: " + clickedImageId);
+            
+            const computerSelection = getComputerChoice();
+            const result = playRound(clickedImageId, computerSelection);
+
+            gameResults.textContent = result;
+            gameStatus.textContent = getGameStatus(score);
+
+            if (result.includes("Win")) {
+                score++;
+            } else if (result.includes("Lose")) {
+                score--;
+            }
+
+            gameScore.textContent = "Score: " + score;
         }
-    }
-    declareWinner(score);
-}   
-
-// I tried using this function but it wasn't working :(
-function scoreCalc(resultOutput) {
-    let counter;
-    if (resultOutput.toLowerCase().includes("win")) {
-        counter++;
-    } else if(resultOutput.toLowerCase().includes("lose")){
-        counter--;
-    }
-    return parseInt(counter);
+    });
 }
 
-function declareWinner (score) {
-    alert(`The Game has Ended! Your score is ${score}`);
-    
-    if (parseInt(score) <= 0) {
-        alert("You've Lost the game :(");
-    } else {
-        alert("You've Won the game :D");
+function getGameStatus(score) {
+
+    if (score <= 0) {
+        return ("You're Losing the game Nerd :(");
+    } else if (score >= 0) {
+        return ("W Luck, Well Played! :D");
     }
 }
 
 game();
-alert("Thanks for playing my game\n©mathdebaate09")
